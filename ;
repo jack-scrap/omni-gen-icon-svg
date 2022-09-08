@@ -1,9 +1,5 @@
 #include <string>
-
-const unsigned int stride = 3;
-
-const std::string ws = " ";
-const std::string sep = ",";
+#include <iostream>
 
 int main() {
 	float vtc[] = {
@@ -66,22 +62,19 @@ int main() {
 		22, 21, 23
 	};
 
-	std::string buff;
+	const unsigned int stride = 3;
+
 	for (int i = 0; i < sizeof idc / sizeof *idc; i++) {
 		int idx = idc[i] * stride;
 
-		std::string cmd;
+		std::string asdf;
 
-		cmd += std::to_string(vtc[idx]);
-		cmd += sep;
-		cmd += std::to_string(vtc[idx + 2]);
-
-		if (i < (sizeof idc / sizeof *idc) - 1) {
-			cmd += ws;
-		}
-
-		buff += cmd;
+		std::cout << vtc[idx] << std::endl;
+		std::cout << vtc[idx + 1] << std::endl;
+		std::cout << vtc[idx + 2] << std::endl;
+		std::cout << std::endl;
 	}
+	std::cout << std::endl;
 
 	return 0;
 }
