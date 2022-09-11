@@ -78,7 +78,7 @@ int main() {
 	std::string buff;
 
 	for (int i = 0; i < sizeof idc / sizeof *idc; i++) {
-		if (!(i % 3)) {
+		if (!(i % STRIDE)) {
 			buff += svg::move;
 
 			buff += svg::ws;
@@ -92,7 +92,7 @@ int main() {
 		cmd += svg::sep;
 		cmd += std::to_string(vtc[idx + 2] * scale);
 
-		if (i % 3 == 2) {
+		if (i % STRIDE == 2) {
 			cmd += svg::ws;
 
 			cmd += svg::close;
