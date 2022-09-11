@@ -4,11 +4,13 @@
 
 #define STRIDE 3
 
-const std::string ws = " ";
-const std::string sep = ",";
+namespace svg {
+	const std::string ws = " ";
+	const std::string sep = ",";
 
-const std::string move = "M";
-const std::string close = "Z";
+	const std::string move = "M";
+	const std::string close = "Z";
+}
 
 int main() {
 	float vtc[] = {
@@ -73,8 +75,8 @@ int main() {
 
 	std::string buff;
 
-	buff += move;
-	buff += ws;
+	buff += svg::move;
+	buff += svg::ws;
 
 	for (int i = 0; i < sizeof idc / sizeof *idc; i++) {
 		int idx = idc[i] * STRIDE;
@@ -82,21 +84,21 @@ int main() {
 		std::string cmd;
 
 		cmd += std::to_string(vtc[idx]);
-		cmd += sep;
+		cmd += svg::sep;
 		cmd += std::to_string(vtc[idx + 2]);
 
 		if (i % 3 == 2) {
-			cmd += ws;
+			cmd += svg::ws;
 
-			cmd += close;
+			cmd += svg::close;
 
-			cmd += ws;
+			cmd += svg::ws;
 
-			cmd += move;
+			cmd += svg::move;
 		}
 
 		if (i < (sizeof idc / sizeof *idc) - 1) {
-			cmd += ws;
+			cmd += svg::ws;
 		}
 
 		buff += cmd;
