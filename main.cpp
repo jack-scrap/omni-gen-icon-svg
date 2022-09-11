@@ -1,6 +1,6 @@
 #include <string>
 
-const unsigned int stride = 3;
+#define STRIDE 3
 
 const std::string ws = " ";
 const std::string sep = ",";
@@ -68,7 +68,7 @@ int main() {
 
 	std::string buff;
 	for (int i = 0; i < sizeof idc / sizeof *idc; i++) {
-		int idx = idc[i] * stride;
+		int idx = idc[i] * STRIDE;
 
 		std::string cmd;
 
