@@ -17,6 +17,24 @@ namespace svg {
 	const std::string close = "Z";
 }
 
+namespace path {
+	const std::string sep = "/";
+
+	std::string build(std::vector<std::string> entry) {
+		std::string buff;
+
+		for (int i = 0; i < entry.size(); i++) {
+			buff += entry[i];
+
+			if (i < entry.size() - 1) {
+				buff += sep;
+			}
+		}
+
+		return buff;
+	}
+}
+
 int main() {
 	float vtc[] = {
 		-0.26, 0.0, -0.26,
@@ -115,7 +133,10 @@ int main() {
 
 	// Write
 	std::ofstream f;
-	f.open("o/" + fName);
+	f.open(path::build({
+		"o",
+		fName
+	}));
 
 	f << "<?xml version=\"1.0\"?>" << "\n";
 	f << "	<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"52\">" << "\n";
