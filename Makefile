@@ -2,13 +2,13 @@ CXX=g++
 
 .PHONY: clean
 
-all: make
+all: omni_gen_icon_svg
 
 main.o: main.cpp
 	$(CXX) -c $< -o $@
 
-make: main.o
-	$(CXX) $^
+omni_gen_icon_svg: main.o
+	$(CXX) $^ -o $@
 
 clean:
-	rm *.o a.out
+	rm *.o omni_gen_icon_svg
