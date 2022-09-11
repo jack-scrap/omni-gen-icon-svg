@@ -4,6 +4,8 @@
 
 #define STRIDE 3
 
+const unsigned int scale = 100;
+
 namespace svg {
 	const std::string ws = " ";
 	const std::string sep = ",";
@@ -83,9 +85,9 @@ int main() {
 
 		std::string cmd;
 
-		cmd += std::to_string(vtc[idx]);
+		cmd += std::to_string(vtc[idx] * scale);
 		cmd += svg::sep;
-		cmd += std::to_string(vtc[idx + 2]);
+		cmd += std::to_string(vtc[idx + 2] * scale);
 
 		if (i % 3 == 2) {
 			cmd += svg::ws;
