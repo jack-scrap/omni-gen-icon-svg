@@ -68,6 +68,10 @@ int main() {
 	};
 
 	std::string buff;
+
+	buff += "M";
+	buff += ws;
+
 	for (int i = 0; i < sizeof idc / sizeof *idc; i++) {
 		int idx = idc[i] * STRIDE;
 
