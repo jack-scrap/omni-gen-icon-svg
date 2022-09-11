@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include <fstream>
 #include <iostream>
 
@@ -75,13 +76,12 @@ int main() {
 		22, 21, 23
 	};
 
-	std::string buff;
+	// Tokenize
+	std::vector<std::string> tok;
 
 	for (int i = 0; i < sizeof idc / sizeof *idc; i++) {
 		if (!(i % STRIDE)) {
-			buff += svg::move;
-
-			buff += svg::ws;
+			tok.push_back(svg::move);
 		}
 
 		int idx = idc[i] * STRIDE;
@@ -93,20 +93,22 @@ int main() {
 		cmd += std::to_string(vtc[idx + 2] * scale);
 
 		if (i % STRIDE == 2) {
-			cmd += svg::ws;
-
 			cmd += svg::close;
-
-			cmd += svg::ws;
 
 			cmd += svg::move;
 		}
 
-		if (i < (sizeof idc / sizeof *idc) - 1) {
-			cmd += svg::ws;
-		}
+		tok.push_back(cmd);
+	}
 
-		buff += cmd;
+	// Serialize
+	std::string buff;
+	for (int i = 0; i < tok.size(); i++) {
+		buff += tok[i];
+
+		if (i < tok.size() - 1) {
+			buff += svg::ws;
+		}
 	}
 
 	std::ofstream f;
