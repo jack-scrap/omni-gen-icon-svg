@@ -7,6 +7,8 @@
 
 const unsigned int scale = 100;
 
+const std::string fName = "icon.svg";
+
 namespace svg {
 	const std::string ws = " ";
 	const std::string sep = ",";
@@ -113,7 +115,7 @@ int main() {
 
 	// Write
 	std::ofstream f;
-	f.open("o/icon.svg");
+	f.open("o/" + fName);
 
 	f << "<?xml version=\"1.0\"?>" << "\n";
 	f << "	<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"52\">" << "\n";
