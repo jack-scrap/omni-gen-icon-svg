@@ -1,13 +1,19 @@
 CXX=g++
 
-all: omni_gen_icon_svg
+BUILDDIR=build
 
-main.o: main.cpp
+all: mk_build omni_gen_icon_svg
+
+$(BUILDDIR)/main.o: main.cpp
 	$(CXX) -c $< -o $@
 
-omni_gen_icon_svg: main.o
+omni_gen_icon_svg: $(BUILDDIR)/main.o
 	$(CXX) $^ -o $@
+
+.PHONY: mk_build
+mk_build:
+	mkdir -p $(BUILDDIR)
 
 .PHONY: clean
 clean:
-	rm *.o omni_gen_icon_svg
+	rm $(BUILDDIR)/*.o omni_gen_icon_svg
