@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 
 #define STRIDE 3
 
@@ -76,12 +77,20 @@ int main() {
 		cmd += sep;
 		cmd += std::to_string(vtc[idx + 2]);
 
+		if (i % 3 == 2) {
+			cmd += ws;
+
+			cmd += "Z";
+		}
+
 		if (i < (sizeof idc / sizeof *idc) - 1) {
 			cmd += ws;
 		}
 
 		buff += cmd;
 	}
+
+	std::cout << buff << std::endl;
 
 	return 0;
 }
