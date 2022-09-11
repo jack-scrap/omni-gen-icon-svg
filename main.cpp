@@ -78,6 +78,7 @@ int main() {
 	std::string buff;
 
 	buff += svg::move;
+
 	buff += svg::ws;
 
 	for (int i = 0; i < sizeof idc / sizeof *idc; i++) {
