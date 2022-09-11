@@ -7,6 +7,9 @@
 const std::string ws = " ";
 const std::string sep = ",";
 
+const std::string move = "M";
+const std::string close = "Z";
+
 int main() {
 	float vtc[] = {
 		-0.26, 0.0, -0.26,
@@ -70,7 +73,7 @@ int main() {
 
 	std::string buff;
 
-	buff += "M";
+	buff += move;
 	buff += ws;
 
 	for (int i = 0; i < sizeof idc / sizeof *idc; i++) {
@@ -85,11 +88,11 @@ int main() {
 		if (i % 3 == 2) {
 			cmd += ws;
 
-			cmd += "Z";
+			cmd += close;
 
 			cmd += ws;
 
-			cmd += "M";
+			cmd += move;
 		}
 
 		if (i < (sizeof idc / sizeof *idc) - 1) {
