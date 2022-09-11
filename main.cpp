@@ -98,7 +98,12 @@ int main() {
 	std::ofstream f;
 	f.open("o/icon.svg");
 
-	f << buff;
+	f << "<?xml version=\"1.0\"?>" << "\n";
+	f << "	<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"52\">" << "\n";
+	f << "		<g transform=\"translate(26,26)\">" << std::endl;
+	f << "			<path d=\"" << buff << "\" fill=\"rgb(255, 142, 65)\" />" << "\n";
+	f << "		</g>" << "\n";
+	f << "</svg>" << "\n";
 
 	f.close();
 
