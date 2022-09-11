@@ -84,9 +84,9 @@ int main() {
 			tok.push_back(svg::move);
 		}
 
-		int idx = idc[i] * STRIDE;
-
 		std::string cmd;
+
+		int idx = idc[i] * STRIDE;
 
 		cmd += std::to_string(vtc[idx] * scale);
 		cmd += svg::sep;
