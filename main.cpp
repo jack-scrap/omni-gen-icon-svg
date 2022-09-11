@@ -111,6 +111,7 @@ int main() {
 		}
 	}
 
+	// Write
 	std::ofstream f;
 	f.open("o/icon.svg");
 
