@@ -92,7 +92,7 @@ int main() {
 		cmd += svg::sep;
 		cmd += std::to_string(vtc[idx + 2] * scale);
 
-		if (i % STRIDE == 2) {
+		if (i % STRIDE == STRIDE - 1) {
 			cmd += svg::close;
 
 			cmd += svg::move;
