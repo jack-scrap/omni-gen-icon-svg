@@ -1,7 +1,5 @@
 CXX=g++
 
-.PHONY: clean
-
 all: omni_gen_icon_svg
 
 main.o: main.cpp
@@ -10,5 +8,6 @@ main.o: main.cpp
 omni_gen_icon_svg: main.o
 	$(CXX) $^ -o $@
 
+.PHONY: clean
 clean:
 	rm *.o omni_gen_icon_svg
