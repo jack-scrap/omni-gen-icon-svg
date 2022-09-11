@@ -122,12 +122,12 @@ int main() {
 	}
 
 	// Serialize
-	std::string buff;
+	std::string pathBuff;
 	for (int i = 0; i < tok.size(); i++) {
-		buff += tok[i];
+		pathBuff += tok[i];
 
 		if (i < tok.size() - 1) {
-			buff += svg::ws;
+			pathBuff += svg::ws;
 		}
 	}
 
@@ -141,7 +141,7 @@ int main() {
 	f << "<?xml version=\"1.0\"?>" << "\n";
 	f << "	<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"52\">" << "\n";
 	f << "		<g transform=\"translate(26,26)\">" << std::endl;
-	f << "			<path d=\"" << buff << "\" fill=\"rgb(255, 142, 65)\" />" << "\n";
+	f << "			<path d=\"" << pathBuff << "\" fill=\"rgb(255, 142, 65)\" />" << "\n";
 	f << "		</g>" << "\n";
 	f << "</svg>" << "\n";
 
