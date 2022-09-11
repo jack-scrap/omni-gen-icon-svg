@@ -1,4 +1,5 @@
 #include <string>
+#include <fstream>
 #include <iostream>
 
 #define STRIDE 3
@@ -94,7 +95,12 @@ int main() {
 		buff += cmd;
 	}
 
-	std::cout << buff << std::endl;
+	std::ofstream f;
+	f.open("o/icon.svg");
+
+	f << buff;
+
+	f.close();
 
 	return 0;
 }
