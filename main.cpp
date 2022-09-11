@@ -131,6 +131,16 @@ int main() {
 		}
 	}
 
+	// Generate buffer
+	std::vector<std::string> buff;
+
+	buff.push_back("<?xml version=\"1.0\"?>");
+	buff.push_back("	<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"52\">");
+	buff.push_back("		<g transform=\"translate(26,26)\">");
+	buff.push_back("			<path d=\"" + pathBuff + "\" fill=\"rgb(255, 142, 65)\" />");
+	buff.push_back("		</g>");
+	buff.push_back("</svg>");
+
 	// Write
 	std::ofstream f;
 	f.open(path::build({
@@ -138,12 +148,9 @@ int main() {
 		fName
 	}));
 
-	f << "<?xml version=\"1.0\"?>" << "\n";
-	f << "	<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"52\">" << "\n";
-	f << "		<g transform=\"translate(26,26)\">" << std::endl;
-	f << "			<path d=\"" << pathBuff << "\" fill=\"rgb(255, 142, 65)\" />" << "\n";
-	f << "		</g>" << "\n";
-	f << "</svg>" << "\n";
+	for (const std::string& line : buff) {
+		f << line << "\n";
+	}
 
 	f.close();
 
