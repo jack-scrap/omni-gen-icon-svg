@@ -86,6 +86,10 @@ int main() {
 			cmd += ws;
 
 			cmd += "Z";
+
+			cmd += ws;
+
+			cmd += "M";
 		}
 
 		if (i < (sizeof idc / sizeof *idc) - 1) {
