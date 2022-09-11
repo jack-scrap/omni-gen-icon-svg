@@ -1,15 +1,17 @@
 SH=/bin/bash
 
+EXEC=omni_gen_icon_svg
+
 CXX=g++
 
 BUILDDIR=build
 
-all: mk_build omni_gen_icon_svg
+all: mk_build $(EXEC)
 
 $(BUILDDIR)/main.o: main.cpp
 	$(CXX) -c $< -o $@
 
-omni_gen_icon_svg: $(BUILDDIR)/main.o
+$(EXEC): $(BUILDDIR)/main.o
 	$(CXX) $^ -o $@
 
 .PHONY: mk_build
@@ -18,4 +20,4 @@ mk_build:
 
 .PHONY: clean
 clean:
-	rm $(BUILDDIR)/*.o omni_gen_icon_svg
+	rm $(BUILDDIR)/*.o $(EXEC)
