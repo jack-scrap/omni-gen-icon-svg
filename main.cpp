@@ -110,7 +110,7 @@ int main() {
 
 		cmd += std::to_string(vtc[idx] * scale);
 		cmd += svg::sep;
-		cmd += std::to_string(vtc[idx + 2] * scale);
+		cmd += std::to_string(vtc[idx + 2] * -1 * scale); // Invert to adhere to OpenGL screen-space coordinates
 
 		if (i % STRIDE == STRIDE - 1) {
 			cmd += svg::close;
